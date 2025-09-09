@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1714</width>
+    <height>870</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1714</width>
+    <height>870</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1714</width>
+    <height>870</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>城市形态指标计算平台</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resource/myRC.qrc">
+    <normaloff>:/ico/qgis.ico</normaloff>:/ico/qgis.ico</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1714</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menufile">
+    <property name="title">
+     <string>Project</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuaction">
+    <property name="title">
+     <string>Action</string>
+    </property>
+    <addaction name="actionZoomin"/>
+    <addaction name="actionZoomout"/>
+   </widget>
+   <widget class="QMenu" name="menulayer">
+    <property name="title">
+     <string>Layer</string>
+    </property>
+    <widget class="QMenu" name="menuvector">
+     <property name="title">
+      <string>Vector</string>
+     </property>
+     <addaction name="actionShapefile"/>
+     <addaction name="actionCsv"/>
+     <addaction name="actionPostGIS"/>
+     <addaction name="actionWFS"/>
+    </widget>
+    <widget class="QMenu" name="menuraster">
+     <property name="title">
+      <string>Raster</string>
+     </property>
+     <addaction name="actionGeotiff"/>
+     <addaction name="actionXYZ"/>
+    </widget>
+    <addaction name="menuvector"/>
+    <addaction name="menuraster"/>
+   </widget>
+   <widget class="QMenu" name="menuhelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAboutQt"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menumaptool">
+    <property name="title">
+     <string>Maptool</string>
+    </property>
+    <addaction name="actionPoint"/>
+    <addaction name="actionLine"/>
+    <addaction name="actionPolygon"/>
+    <addaction name="actionRectangle"/>
+   </widget>
+   <addaction name="menufile"/>
+   <addaction name="menuaction"/>
+   <addaction name="menulayer"/>
+   <addaction name="menumaptool"/>
+   <addaction name="menuhelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="mainOperator">
+   <property name="minimumSize">
+    <size>
+     <width>676</width>
+     <height>818</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <italic>false</italic>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>操作台</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QGroupBox" name="indicator">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>480</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <italic>false</italic>
+        </font>
+       </property>
+       <property name="title">
+        <string>指标选择</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <item>
+         <widget class="QFrame" name="frame_5">
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QGroupBox" name="groupBox_4">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="title">
+              <string>3D指标</string>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <widget class="QCheckBox" name="count">
+                <property name="text">
+                 <string>Building Count</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="area">
+                <property name="text">
+                 <string>Summary Building Area</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="volume">
+                <property name="text">
+                 <string>Summary Building Volume</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="stdh">
+                <property name="text">
+                 <string>Standard Deviation of 
+ Building Height</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="mh">
+                <property name="text">
+                 <string>Mean Height</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="haw">
+                <property name="text">
+                 <string>Area Weighted 
+ Mean Building Height</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="sumhei">
+                <property name="text">
+                 <string>Summary Height</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="dh">
+                <property name="text">
+                 <string>Distribution of 
+ Buiding Height</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="lb">
+                <property name="text">
+                 <string>Building Surface to 
+ Plan Area Ratio</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QCheckBox" name="lp">
+                <property name="text">
+                 <string>Plan Area Fraction</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_2">
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <property name="topMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>0</number>
+              </property>
+              <item>
+               <widget class="QGroupBox" name="groupBox_7">
+                <property name="title">
+                 <string>3D指标(Frontal Area Index)</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_7">
+                 <item>
+                  <widget class="QCheckBox" name="lf0">
+                   <property name="text">
+                    <string>λf0</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="lf45">
+                   <property name="text">
+                    <string>λf45</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="lf90">
+                   <property name="text">
+                    <string>λf90</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="lf135">
+                   <property name="text">
+                    <string>λf135</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QGroupBox" name="groupBox_5">
+                <property name="title">
+                 <string>2D指标</string>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <item>
+                  <widget class="QCheckBox" name="pol">
+                   <property name="text">
+                    <string>Proportion Of Landscape</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="lpi">
+                   <property name="text">
+                    <string>Largest Patch Index</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="pd">
+                   <property name="text">
+                    <string>Patch Density</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="ed">
+                   <property name="text">
+                    <string>Edge Density</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="si">
+                   <property name="text">
+                    <string>Shape Index</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QCheckBox" name="ai">
+                   <property name="text">
+                    <string>Aggregation Index</string>
+                   </property>
+                   <property name="checked">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QFrame" name="frame_6">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>50</height>
+           </size>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::NoFrame</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_2">
+           <property name="leftMargin">
+            <number>11</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="selectAll">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>全选</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="selectSwitch">
+             <property name="maximumSize">
+              <size>
+               <width>200</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>反选</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="jisuan">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>130</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>130</height>
+        </size>
+       </property>
+       <property name="title">
+        <string>计算</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_3">
+        <item>
+         <widget class="QGroupBox" name="groupBox">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <italic>false</italic>
+           </font>
+          </property>
+          <property name="title">
+           <string>矩形绘制</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="selectRectangle">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <italic>false</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>选取范围</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calMor">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <italic>false</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>开始计算</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="groupBox_2">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <italic>false</italic>
+           </font>
+          </property>
+          <property name="title">
+           <string>多边形绘制</string>
+          </property>
+          <layout class="QHBoxLayout" name="horizontalLayout_6">
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="selectPolygon">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <italic>false</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>选取范围</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="calMor_polygon">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <italic>false</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>开始计算</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="qita">
+       <property name="maximumSize">
+        <size>
+         <width>16777215</width>
+         <height>160</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <italic>false</italic>
+        </font>
+       </property>
+       <property name="title">
+        <string>其他</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <widget class="QGroupBox" name="groupBox_6">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>150</height>
+           </size>
+          </property>
+          <property name="title">
+           <string>现有建筑物图层</string>
+          </property>
+          <widget class="QLineEdit" name="buildingsDir">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>30</y>
+             <width>251</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="multiCal">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>90</y>
+             <width>75</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <italic>false</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>开始计算</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="resultDir">
+           <property name="geometry">
+            <rect>
+             <x>130</x>
+             <y>60</y>
+             <width>251</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_4">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>60</y>
+             <width>111</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>结果存储目录</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_3">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>30</y>
+             <width>111</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>建筑物目录</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="selectBuildingsDir">
+           <property name="geometry">
+            <rect>
+             <x>390</x>
+             <y>30</y>
+             <width>21</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <italic>false</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>：</string>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>91</y>
+             <width>54</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <italic>false</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>线程数量</string>
+           </property>
+          </widget>
+          <widget class="QLineEdit" name="threadNum">
+           <property name="geometry">
+            <rect>
+             <x>70</x>
+             <y>90</y>
+             <width>41</width>
+             <height>21</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>6</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="selectResultDir">
+           <property name="geometry">
+            <rect>
+             <x>390</x>
+             <y>60</y>
+             <width>21</width>
+             <height>23</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <italic>false</italic>
+            </font>
+           </property>
+           <property name="text">
+            <string>：</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="layer">
+   <property name="minimumSize">
+    <size>
+     <width>200</width>
+     <height>42</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>300</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <italic>false</italic>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>图层</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="layerContents"/>
+  </widget>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>Quit</string>
+   </property>
+  </action>
+  <action name="actionZoomin">
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+  </action>
+  <action name="actionZoomout">
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+  </action>
+  <action name="actionIdentity">
+   <property name="text">
+    <string>Identify</string>
+   </property>
+  </action>
+  <action name="actionShapefile">
+   <property name="text">
+    <string>Shapefile</string>
+   </property>
+  </action>
+  <action name="actionCsv">
+   <property name="text">
+    <string>CSV</string>
+   </property>
+  </action>
+  <action name="actionPostGIS">
+   <property name="text">
+    <string>PostGIS</string>
+   </property>
+  </action>
+  <action name="actionWFS">
+   <property name="text">
+    <string>WFS</string>
+   </property>
+  </action>
+  <action name="actionGeotiff">
+   <property name="text">
+    <string>Geotiff</string>
+   </property>
+  </action>
+  <action name="actionRectangle">
+   <property name="text">
+    <string>Rectangle</string>
+   </property>
+  </action>
+  <action name="actionPolygon">
+   <property name="text">
+    <string>Polygon</string>
+   </property>
+  </action>
+  <action name="actionCircle">
+   <property name="text">
+    <string>Circle</string>
+   </property>
+  </action>
+  <action name="actionPoint">
+   <property name="text">
+    <string>Point</string>
+   </property>
+  </action>
+  <action name="actionLine">
+   <property name="text">
+    <string>Line</string>
+   </property>
+  </action>
+  <action name="actionXYZ">
+   <property name="text">
+    <string>XYZ</string>
+   </property>
+  </action>
+  <action name="actionTransform">
+   <property name="text">
+    <string>Transform</string>
+   </property>
+  </action>
+  <action name="actionPan">
+   <property name="text">
+    <string>Pan</string>
+   </property>
+  </action>
+  <action name="actionAboutQt">
+   <property name="text">
+    <string>About Qt</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionSP">
+   <property name="text">
+    <string>Spheres and prisms</string>
+   </property>
+  </action>
+  <action name="action_Obj">
+   <property name="text">
+    <string>.Obj</string>
+   </property>
+  </action>
+  <action name="actionShape2KML">
+   <property name="text">
+    <string>Shape2KML</string>
+   </property>
+  </action>
+  <action name="actionKML2Shape">
+   <property name="text">
+    <string>KML2Shape</string>
+   </property>
+  </action>
+  <action name="actionModel_Extration">
+   <property name="text">
+    <string>Model Extraction</string>
+   </property>
+  </action>
+  <action name="actionModel_Refinement">
+   <property name="text">
+    <string>Model Refinement</string>
+   </property>
+  </action>
+  <action name="actionOrthoimage">
+   <property name="text">
+    <string>Orthoimage
+</string>
+   </property>
+  </action>
+  <action name="actionWFS_2">
+   <property name="text">
+    <string>WFS</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="../resource/myRC.qrc"/>
+ </resources>
+ <connections/>
+</ui>

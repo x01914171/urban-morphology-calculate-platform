@@ -1,0 +1,38 @@
+# 3D建筑形态分析平台 - Python依赖包
+# Urban Morphology Analysis Platform - Python Dependencies
+
+# GUI框架 / GUI Framework
+PyQt5>=5.15.0
+qgis>=3.20.0
+
+# 空间数据处理 / Spatial Data Processing
+GDAL>=3.2.0
+rasterio>=1.3.0
+fiona>=1.8.0
+geopandas>=0.12.0
+shapely>=1.8.0
+
+# 投影变换 / Coordinate Transformation
+pyproj>=3.4.0
+
+# 科学计算 / Scientific Computing
+numpy>=1.20.0
+scipy>=1.8.0
+matplotlib>=3.5.0
+
+# 景观生态学指数 / Landscape Ecology Indices
+pylandstats>=3.0.0
+
+# 进度条 / Progress Bar
+tqdm>=4.64.0
+
+# 数据分析 / Data Analysis
+pandas>=1.4.0
+
+# 多进程支持 / Multiprocessing Support
+multiprocessing-logging>=0.3.0
+
+# 开发工具 / Development Tools (可选)
+# pytest>=7.0.0
+# black>=22.0.0
+# flake8>=4.0.0

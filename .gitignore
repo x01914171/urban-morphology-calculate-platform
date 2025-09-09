@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyQt
+*.qm
+*.pyc
+
+# QGIS
+*.qgs~
+*.qgz~
+
+# 计算结果文件 / Computation Results
+res/
+resource/result/
+
+# 配置文件 (保留模板)
+config.json
+
+# 临时文件 / Temporary Files
+*.tmp
+*.temp
+*.log
+
+# 编辑器和IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 数据文件 (大文件不上传)
+*.tif
+*.tiff
+*.img
+*.bil
+*.hdr
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.sbn
+*.sbx
+
+# 保留示例数据结构但忽略具体文件内容
+!resource/GAIA/.gitkeep
+!resource/buildings_GBA/.gitkeep
+!test_buildings/.gitkeep
+
+# 备份文件
+*.bak
+*.backup
